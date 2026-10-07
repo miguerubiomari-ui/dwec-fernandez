@@ -34,7 +34,7 @@ function ejercicio1() {
 
   let infeinido = 7;
   console.log("Indeninido con valor actualizado = ", indefinido, "->", typeof indefinido);
-  
+
     // TODO: declara una variable de cada tipo que falta: string, boolean, null, undefined y bigint (como 10n).
   //       const si no va a cambiar; let para al menos una a la que des valor más tarde.
   // TODO: muestra en la consola el valor y el typeof de cada una, como en el ejemplo.
@@ -50,6 +50,27 @@ function ejercicio2() {
   // Ejemplo: una conversión, tu predicción y el resultado con su tipo
   const a = String(123);   // espero [tu predicción]
   console.log("String(123) →", a, typeof a);
+
+  const b = Number("1234"); // Espero de tipo Number
+  console.log('Number("1234")',b,typeof b); 
+
+  const c = Number("12abc"); //Espero Nan;
+  console.log('Number("12abc")',c, typeof c);
+
+  const d = Number(""); //Espero 0 de tipo Number
+  console.log('Number("")', d, typeof d);
+  
+  const e = Number(true); //Espero 1 de tipo Number
+  console.log = ('Number(true)', e, typeof e);
+
+  const f = Boolean(0); // Espero false
+  console.log('Boolean(0)', f, typeof f);
+
+  const g = Boolean("texto"); // Espero Ture
+  console.log('Boolean("texto")', g, typeof g);
+
+  const h = Boolean(""); // Espero false
+  console.log('Boolean("")', h, typeof h);
 
   // TODO: el resto de conversiones obligatorias, cada una con su «espero …»:
   //       Number("123"), Number("12abc"), Number(""), Number(true),
