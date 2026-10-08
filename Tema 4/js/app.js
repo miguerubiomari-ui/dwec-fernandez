@@ -35,10 +35,6 @@ function ejercicio1() {
   let infeinido = 7;
   console.log("Indeninido con valor actualizado = ", indefinido, "->", typeof indefinido);
 
-    // TODO: declara una variable de cada tipo que falta: string, boolean, null, undefined y bigint (como 10n).
-  //       const si no va a cambiar; let para al menos una a la que des valor más tarde.
-  // TODO: muestra en la consola el valor y el typeof de cada una, como en el ejemplo.
-  // TODO: da valor a tu variable let y vuelve a mostrar su typeof.
 }
 
 
@@ -72,10 +68,6 @@ function ejercicio2() {
   const h = Boolean(""); // Espero false
   console.log('Boolean("")', h, typeof h);
 
-  // TODO: el resto de conversiones obligatorias, cada una con su «espero …»:
-  //       Number("123"), Number("12abc"), Number(""), Number(true),
-  //       Boolean(0), Boolean("texto") y Boolean("").
-  // TODO: muestra en la consola el resultado y el typeof de cada una.
 }
 
 
@@ -86,7 +78,6 @@ function ejercicio3() {
   // Ejemplo: una expresión que mezcla tipos
   console.log('"5" - 2 →', "5" - 2);   // espero [tu predicción]
 
-  // TODO: cinco expresiones más que mezclen tipos (al menos dos inventadas por ti), cada una con su «espero …».
 
   // Ejemplo: la misma pareja comparada con == y con ===
   console.log('5 == "5" →', 5 == "5");     // espero [tu predicción]
@@ -103,7 +94,7 @@ function ejercicio3() {
 
 console.log('x == undefined ->', x == undefined);     //Espero un true
 console.log('x === undefined ->', x === undefined);   //Espero un true
-  // TODO: haz lo mismo con 0 y false, y con null y undefined.
+
 }
 
 
@@ -117,21 +108,20 @@ function ejercicio4() {
   const ciclo = "[Desarrollo de aplicaciones web]";
   const curso = "[2º]";
   const aficion = "[Videojuegos]";
-  // TODO: ciclo, curso y una afición, también con const.
+
    let horasEstudiades = 7;
   horasEstudiades += 3; 
   // Un dato que cambia, con let
-  // TODO: por ejemplo, las horas que has estudiado esta semana. Después súmale algo con +=.
+
 
   // La ficha con plantilla de cadena: backticks (`) y ${ }
   const ficha = `Mi ciclo es ${ciclo} Mi curso es ${curso} Mi afición es ${aficion}`;
 
-  // TODO: completa la ficha con todos tus datos y muéstrala con alert() y en la consola.
+
   const fichaConMas = `Mi ciclo es ${ciclo}` + ` Mi curso es es ${curso}` + ` Mi afición es ${aficion}`;
   console.log(fichaConMas);
   alert(fichaConMas);
-  // TODO: escribe la misma ficha concatenando con + en una constante fichaConMas y muéstrala en la consola.
-  // TODO: compara las dos con === y muestra el resultado en la consola: tiene que salir true.
+
     console.log('Comparación de fichas: ficha === fichaConMas', ficha === fichaConMas); // Tiene que dar true
-  // Recuerda: el error de dar otro valor a una const se provoca en la consola del navegador, no aquí.
+
 }

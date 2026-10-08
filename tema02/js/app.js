@@ -13,3 +13,6 @@ function detectarNavegador() {
     alert(navigator.userAgent);
     console.log("Botón «¿Qué navegador soy?» pulsado. userAgent:", navigator.userAgent);
 }
+function ejemplo() {
+    console.log("Mensaje de despedida");
+}
