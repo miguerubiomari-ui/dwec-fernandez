@@ -92,6 +92,17 @@ function ejercicio3() {
   console.log('5 == "5" →', 5 == "5");     // espero [tu predicción]
   console.log('5 === "5" →', 5 === "5");   // espero [tu predicción]
 
+  console.log('"6" == 7 ->', "6" == 7); // Espero un false
+  console.log('"6" == 7 ->', "6" === 7); // Espero un false
+
+  console.log('"" == 1 ->', "" == 1);  // Espero yn false
+  console.log('"" == 1 ->', "" === 1);  // Espero un false
+
+  console.log('true == 1 ->', true == 1);// espero true
+  console.log('true == 1 ->', true === 1);// espero false
+
+console.log('x == undefined ->', x == undefined);     //Espero un true
+console.log('x === undefined ->', x === undefined);   //Espero un true
   // TODO: haz lo mismo con 0 y false, y con null y undefined.
 }
 
@@ -102,17 +113,25 @@ function ejercicio4() {
 
   // Tus datos, con const
   const nombre = "[Tu nombre]";
-  // TODO: ciclo, curso y una afición, también con const.
 
+  const ciclo = "[Desarrollo de aplicaciones web]";
+  const curso = "[2º]";
+  const aficion = "[Videojuegos]";
+  // TODO: ciclo, curso y una afición, también con const.
+   let horasEstudiades = 7;
+  horasEstudiades += 3; 
   // Un dato que cambia, con let
   // TODO: por ejemplo, las horas que has estudiado esta semana. Después súmale algo con +=.
 
   // La ficha con plantilla de cadena: backticks (`) y ${ }
-  const ficha = `Soy ${nombre}.`;
-  // TODO: completa la ficha con todos tus datos y muéstrala con alert() y en la consola.
+  const ficha = `Mi ciclo es ${ciclo} Mi curso es ${curso} Mi afición es ${aficion}`;
 
+  // TODO: completa la ficha con todos tus datos y muéstrala con alert() y en la consola.
+  const fichaConMas = `Mi ciclo es ${ciclo}` + ` Mi curso es es ${curso}` + ` Mi afición es ${aficion}`;
+  console.log(fichaConMas);
+  alert(fichaConMas);
   // TODO: escribe la misma ficha concatenando con + en una constante fichaConMas y muéstrala en la consola.
   // TODO: compara las dos con === y muestra el resultado en la consola: tiene que salir true.
-
+    console.log('Comparación de fichas: ficha === fichaConMas', ficha === fichaConMas); // Tiene que dar true
   // Recuerda: el error de dar otro valor a una const se provoca en la consola del navegador, no aquí.
 }
