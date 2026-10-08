@@ -163,13 +163,151 @@ function ejercicio2() {
       <!-- 5) El botón. onclick="ejercicio1()" hace que, al pulsarlo, se ejecute la función ejercicio1() de js/app.js.
               Cómo funciona lo veremos más adelante, con los eventos. De momento, cópialo tal cual y cambia solo el número. -->
       <div class="card-footer">
-        <button type="button" class="btn btn-primary" onclick="ejercicio1()">
-          <i class="bi bi-play-fill"></i> Ejecutar ejercicio 1
+        <button type="button" class="btn btn-primary" onclick="ejercicio2()">
+          <i class="bi bi-play-fill"></i> Ejecutar ejercicio 2
         </button>
         <span class="small text-body-secondary ms-2">El resultado sale en la consola (F12).</span>
       </div>
     </section>
 
+<!--Ejercicio 3-->
+    <section class="card mb-4 shadow-sm">
+
+      <!-- 1) Título del ejercicio -->
+      <div class="card-header d-flex align-items-center gap-2">
+        <span class="badge text-bg-primary">Ejercicio 3</span>
+        <h2 class="h5 mb-0">Coerción y comparaciones</h2>
+      </div>
+
+      <div class="card-body">
+
+        <!-- 2) El código: cuando termines, copia aquí tu función ejercicio1() de js/app.js.
+                Si tu código lleva los signos < o >, escríbelos como &lt; y &gt; -->
+        <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio3() {
+function ejercicio3() {
+  console.log("--- Ejercicio 3 · Coerción y comparaciones ---");
+
+  // Ejemplo: una expresión que mezcla tipos
+  console.log('"5" - 2 →', "5" - 2);   // espero [tu predicción]
+
+
+  // Ejemplo: la misma pareja comparada con == y con ===
+  console.log('5 == "5" →', 5 == "5");     // espero [tu predicción]
+  console.log('5 === "5" →', 5 === "5");   // espero [tu predicción]
+
+  console.log('"6" == 7 ->', "6" == 7); // Espero un false
+  console.log('"6" == 7 ->', "6" === 7); // Espero un false
+
+  console.log('"" == 1 ->', "" == 1);  // Espero yn false
+  console.log('"" == 1 ->', "" === 1);  // Espero un false
+
+  console.log('true == 1 ->', true == 1);// espero true
+  console.log('true == 1 ->', true === 1);// espero false
+
+console.log('x == undefined ->', x == undefined);     //Espero un true
+console.log('x === undefined ->', x === undefined);   //Espero un true
+
+}
+}</code></pre>
+
+        <!-- 3) La tabla «Espero / Sale», rellenada a mano.
+                Una fila por variable. Si te equivocas, añade en la columna «Sale» el badge:
+                <span class="badge text-bg-danger">Fallé</span> -->
+        <div class="table-responsive">
+          <table class="table table-sm table-striped align-middle mb-2">
+            <thead class="table-primary">
+              <tr><th scope="col">Variable</th><th scope="col">Valor</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">edad</th><td><code>20</code></td><td><code>number</code></td><td><code>number</code></td></tr>
+              <tr><th scope="row">[variable]</th><td><code>[valor]</code></td><td><code>[lo que esperas]</code></td><td><code>[lo que sale]</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 4) Tu explicación -->
+        <p class="small mb-0"><strong>El caso de null:</strong> [explica en una línea qué pasa con typeof null]</p>
+      </div>
+
+      <!-- 5) El botón. onclick="ejercicio1()" hace que, al pulsarlo, se ejecute la función ejercicio1() de js/app.js.
+              Cómo funciona lo veremos más adelante, con los eventos. De momento, cópialo tal cual y cambia solo el número. -->
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" onclick="ejercicio3()">
+          <i class="bi bi-play-fill"></i> Ejecutar ejercicio 3
+        </button>
+        <span class="small text-body-secondary ms-2">El resultado sale en la consola (F12).</span>
+      </div>
+    </section>
+<!--Ejercicio 4-->
+    <section class="card mb-4 shadow-sm">
+
+      <!-- 1) Título del ejercicio -->
+      <div class="card-header d-flex align-items-center gap-2">
+        <span class="badge text-bg-primary">Ejercicio 4</span>
+        <h2 class="h5 mb-0">Tu ficha con plantillas de cadena</h2>
+      </div>
+
+      <div class="card-body">
+
+        <!-- 2) El código: cuando termines, copia aquí tu función ejercicio1() de js/app.js.
+                Si tu código lleva los signos < o >, escríbelos como &lt; y &gt; -->
+        <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio1() {
+function ejercicio4() {
+  console.log("--- Ejercicio 4 · Tu ficha con plantillas de cadena ---");
+
+  // Tus datos, con const
+  const nombre = "[Tu nombre]";
+
+  const ciclo = "[Desarrollo de aplicaciones web]";
+  const curso = "[2º]";
+  const aficion = "[Videojuegos]";
+
+   let horasEstudiades = 7;
+  horasEstudiades += 3; 
+  // Un dato que cambia, con let
+
+
+  // La ficha con plantilla de cadena: backticks (`) y ${ }
+  const ficha = `Mi ciclo es ${ciclo} Mi curso es ${curso} Mi afición es ${aficion}`;
+
+
+  const fichaConMas = `Mi ciclo es ${ciclo}` + ` Mi curso es es ${curso}` + ` Mi afición es ${aficion}`;
+  console.log(fichaConMas);
+  alert(fichaConMas);
+
+    console.log('Comparación de fichas: ficha === fichaConMas', ficha === fichaConMas); // Tiene que dar true
+
+}
+}</code></pre>
+
+        <!-- 3) La tabla «Espero / Sale», rellenada a mano.
+                Una fila por variable. Si te equivocas, añade en la columna «Sale» el badge:
+                <span class="badge text-bg-danger">Fallé</span> -->
+        <div class="table-responsive">
+          <table class="table table-sm table-striped align-middle mb-2">
+            <thead class="table-primary">
+              <tr><th scope="col">Variable</th><th scope="col">Valor</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">edad</th><td><code>20</code></td><td><code>number</code></td><td><code>number</code></td></tr>
+              <tr><th scope="row">[variable]</th><td><code>[valor]</code></td><td><code>[lo que esperas]</code></td><td><code>[lo que sale]</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 4) Tu explicación -->
+        <p class="small mb-0"><strong>El caso de null:</strong> [explica en una línea qué pasa con typeof null]</p>
+      </div>
+
+      <!-- 5) El botón. onclick="ejercicio1()" hace que, al pulsarlo, se ejecute la función ejercicio1() de js/app.js.
+              Cómo funciona lo veremos más adelante, con los eventos. De momento, cópialo tal cual y cambia solo el número. -->
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" onclick="ejercicio4()">
+          <i class="bi bi-play-fill"></i> Ejecutar ejercicio 4
+        </button>
+        <span class="small text-body-secondary ms-2">El resultado sale en la consola (F12).</span>
+      </div>
+    </section>
     <!-- ============================================================
          EJERCICIOS 2, 3 Y 4 · Los haces tú
          Copia la card del ejercicio 1 entera (desde <section> hasta </section>), pégala aquí debajo
@@ -187,7 +325,7 @@ function ejercicio2() {
 
   <footer class="bg-body-tertiary border-top py-3">
     <div class="container small text-body-secondary">
-      [Tu nombre y apellidos] · DWEC 26/27 · Tarea 3 · Las capturas, la reflexión y las fuentes están en el README.
+      Miguel Ángel Fernández Vega · DWEC 26/27 · Tarea 3 · Las capturas, la reflexión y las fuentes están en el README.
     </div>
   </footer>
 
