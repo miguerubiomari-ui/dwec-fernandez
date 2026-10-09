@@ -103,7 +103,7 @@ function ejercicio4() {
   console.log("--- Ejercicio 4 · Tu ficha con plantillas de cadena ---");
 
   // Tus datos, con const
-  const nombre = "[Tu nombre]";
+  const nombre = "[Miguel Ángel Fernández Vega]";
 
   const ciclo = "[Desarrollo de aplicaciones web]";
   const curso = "[2º]";
@@ -115,10 +115,10 @@ function ejercicio4() {
 
 
   // La ficha con plantilla de cadena: backticks (`) y ${ }
-  const ficha = `Mi ciclo es ${ciclo} Mi curso es ${curso} Mi afición es ${aficion}`;
+  const ficha = `Mi nombre es ${nombre} Mi ciclo es ${ciclo} Mi curso es ${curso} Mi afición es ${aficion}`;
 
 
-  const fichaConMas = `Mi ciclo es ${ciclo}` + ` Mi curso es es ${curso}` + ` Mi afición es ${aficion}`;
+  const fichaConMas = `Mi nombre es ${nombre}` + ` Mi ciclo es ${ciclo}` + ` Mi curso es es ${curso}` + ` Mi afición es ${aficion}`;
   console.log(fichaConMas);
   alert(fichaConMas);
 

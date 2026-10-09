@@ -135,7 +135,7 @@ function ejercicio2() {
   console.log("--- Ejercicio 2 · Conversiones explícitas ---");
 
   // Ejemplo: una conversión, tu predicción y el resultado con su tipo
-  const a = String(123);   // espero [tu predicción]
+  const a = String(123);   
   console.log("String(123) →", a, typeof a);
 
   const b = Number("1234"); // Espero de tipo Number
@@ -166,19 +166,24 @@ function ejercicio2() {
                 Una fila por variable. Si te equivocas, añade en la columna «Sale» el badge:
                 <span class="badge text-bg-danger">Fallé</span> -->
         <div class="table-responsive">
-          <table class="table table-sm table-striped align-middle mb-2">
-            <thead class="table-primary">
-              <tr><th scope="col">Variable</th><th scope="col">Valor</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
-            </thead>
-            <tbody>
-              <tr><th scope="row">edad</th><td><code>20</code></td><td><code>number</code></td><td><code>number</code></td></tr>
-              <tr><th scope="row">[variable]</th><td><code>[valor]</code></td><td><code>[lo que esperas]</code></td><td><code>[lo que sale]</code></td></tr>
-            </tbody>
-          </table>
+<table class="table table-sm table-striped align-middle mb-2">
+  <thead class="table-primary">
+    <tr><th scope="col">Conversión</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">String(123)</th><td><code>"123"</code> (string)</td><td><code>123 string</code></td></tr>
+    <tr><th scope="row">Number("1234")</th><td><code>1234</code> (number)</td><td><code>1234 number</code></td></tr>
+    <tr><th scope="row">Number("12abc")</th><td><code>NaN</code></td><td><code>NaN number</code></td></tr>
+    <tr><th scope="row">Number("")</th><td><code>0</code> (number)</td><td><code>0 number</code></td></tr>
+    <tr><th scope="row">Number(true)</th><td><code>1</code> (number)</td><td><code>1 number</code></td></tr>
+    <tr><th scope="row">Boolean(0)</th><td><code>false</code></td><td><code>false boolean</code></td></tr>
+    <tr><th scope="row">Boolean("texto")</th><td><code>true</code></td><td><code>true boolean</code></td></tr>
+    <tr><th scope="row">Boolean("")</th><td><code>false</code></td><td><code>false boolean</code></td></tr>
+  </tbody>
+</table>
         </div>
 
         <!-- 4) Tu explicación -->
-        <p class="small mb-0"><strong>El caso de null:</strong> [explica en una línea qué pasa con typeof null]</p>
       </div>
 
       <!-- 5) El botón. onclick="ejercicio1()" hace que, al pulsarlo, se ejecute la función ejercicio1() de js/app.js.
@@ -208,14 +213,6 @@ function ejercicio2() {
 function ejercicio3() {
   console.log("--- Ejercicio 3 · Coerción y comparaciones ---");
 
-  // Ejemplo: una expresión que mezcla tipos
-  console.log('"5" - 2 →', "5" - 2);   // espero [tu predicción]
-
-
-  // Ejemplo: la misma pareja comparada con == y con ===
-  console.log('5 == "5" →', 5 == "5");     // espero [tu predicción]
-  console.log('5 === "5" →', 5 === "5");   // espero [tu predicción]
-
   console.log('"6" == 7 ->', "6" == 7); // Espero un false
   console.log('"6" == 7 ->', "6" === 7); // Espero un false
 
@@ -235,19 +232,25 @@ console.log('x === undefined ->', x === undefined);   //Espero un true
                 Una fila por variable. Si te equivocas, añade en la columna «Sale» el badge:
                 <span class="badge text-bg-danger">Fallé</span> -->
         <div class="table-responsive">
-          <table class="table table-sm table-striped align-middle mb-2">
-            <thead class="table-primary">
-              <tr><th scope="col">Variable</th><th scope="col">Valor</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
-            </thead>
-            <tbody>
-              <tr><th scope="row">edad</th><td><code>20</code></td><td><code>number</code></td><td><code>number</code></td></tr>
-              <tr><th scope="row">[variable]</th><td><code>[valor]</code></td><td><code>[lo que esperas]</code></td><td><code>[lo que sale]</code></td></tr>
-            </tbody>
-          </table>
+<table class="table table-sm table-striped align-middle mb-2">
+  <thead class="table-primary">
+    <tr><th scope="col">Expresión</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">"6" == 7</th><td><code>false</code></td><td><code>false</code></td></tr>
+    <tr><th scope="row">"6" === 7</th><td><code>false</code></td><td><code>false</code></td></tr>
+    <tr><th scope="row">"" == 1</th><td><code>false</code></td><td><code>false</code></td></tr>
+    <tr><th scope="row">"" === 1</th><td><code>false</code></td><td><code>false</code></td></tr>
+    <tr><th scope="row">true == 1</th><td><code>true</code></td><td><code>false</code></td></tr>
+    <tr><th scope="row">true === 1</th><td><code>false</code></td><td><code>false</code></td></tr>
+    <tr><th scope="row">x == undefined</th><td><code>true</code></td><td><code>true</code></td></tr>
+    <tr><th scope="row">x === undefined</th><td><code>true</code></td><td><code>false</code></td></tr>
+  </tbody>
+</table>
         </div>
 
         <!-- 4) Tu explicación -->
-        <p class="small mb-0"><strong>El caso de null:</strong> [explica en una línea qué pasa con typeof null]</p>
+        <p class="small mb-0"><strong>El caso de null:</strong>Con + manda la cadena si algún operando lo es ("5" + 3 → "53"), y con -, *, / manda el número ("5" - 3 → 2).</p>
       </div>
 
       <!-- 5) El botón. onclick="ejercicio1()" hace que, al pulsarlo, se ejecute la función ejercicio1() de js/app.js.
@@ -272,7 +275,7 @@ console.log('x === undefined ->', x === undefined);   //Espero un true
 
         <!-- 2) El código: cuando termines, copia aquí tu función ejercicio1() de js/app.js.
                 Si tu código lleva los signos < o >, escríbelos como &lt; y &gt; -->
-        <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio1() {
+        <pre class="bg-dark text-light p-3 rounded small mb-4"><code>
 function ejercicio4() {
   console.log("--- Ejercicio 4 · Tu ficha con plantillas de cadena ---");
 
@@ -299,22 +302,15 @@ function ejercicio4() {
     console.log('Comparación de fichas: ficha === fichaConMas', ficha === fichaConMas); // Tiene que dar true
 
 }
-}</code></pre>
+</code></pre>
 
         <!-- 3) La tabla «Espero / Sale», rellenada a mano.
                 Una fila por variable. Si te equivocas, añade en la columna «Sale» el badge:
                 <span class="badge text-bg-danger">Fallé</span> -->
-        <div class="table-responsive">
-          <table class="table table-sm table-striped align-middle mb-2">
-            <thead class="table-primary">
-              <tr><th scope="col">Variable</th><th scope="col">Valor</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
-            </thead>
-            <tbody>
-              <tr><th scope="row">edad</th><td><code>20</code></td><td><code>number</code></td><td><code>number</code></td></tr>
-              <tr><th scope="row">[variable]</th><td><code>[valor]</code></td><td><code>[lo que esperas]</code></td><td><code>[lo que sale]</code></td></tr>
-            </tbody>
-          </table>
-        </div>
+<div class="alert alert-danger" role="alert">
+  <p class="mb-1"><strong>Mi ficha:</strong> Mi ciclo es Desarrollo de aplicaciones web Mi curso es 2º Mi afición es Videojuegos</p>
+  <p class="mb-0"><strong>Error de const:</strong> <code>TypeError: Assignment to constant variable.</code> Sale al intentar reasignar una <code>const</code>, por ejemplo <code>nombre = "Otro";</code>. Para valores que cambian hay que usar <code>let</code>, como en <code>horasEstudiades</code>.</p>
+</div>
 
         <!-- 4) Tu explicación -->
         <p class="small mb-0"><strong>El caso de null:</strong> [explica en una línea qué pasa con typeof null]</p>
