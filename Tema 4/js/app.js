@@ -32,7 +32,7 @@ function ejercicio1() {
   console.log("Indefinido = ", indefinido, "->", typeof indefinido);
   console.log("Int grande = ", numero_grande, "->", typeof numero_grande);
 
-  let infeinido = 7;
+  indefinido = 7;
   console.log("Indeninido con valor actualizado = ", indefinido, "->", typeof indefinido);
 
 }

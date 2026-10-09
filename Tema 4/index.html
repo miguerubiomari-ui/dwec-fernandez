@@ -60,12 +60,29 @@
         <!-- 2) El código: cuando termines, copia aquí tu función ejercicio1() de js/app.js.
                 Si tu código lleva los signos < o >, escríbelos como &lt; y &gt; -->
         <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio1() {
+function ejercicio1() {
   console.log("--- Ejercicio 1 · Variables y typeof ---");
 
+  // Ejemplo: una variable y su typeof en la consola
   const edad = 20;   // number
   console.log("edad =", edad, "→", typeof edad);
 
-  [aquí va el resto de tu código]
+  const letras = "Esta variable es un string";
+  let verdad = true;
+  const nulo = null;
+  let indefinido; 
+  const numero_grande = 10000000000;
+
+  console.log("texto = ", letras, "->", typeof letras);
+  console.log("Booleano = ", verdad, "->", typeof verdad);
+  console.log("Nulo = ", nulo, "->", typeof nulo);
+  console.log("Indefinido = ", indefinido, "->", typeof indefinido);
+  console.log("Int grande = ", numero_grande, "->", typeof numero_grande);
+
+  indefinido = 7;
+  console.log("Indeninido con valor actualizado = ", indefinido, "->", typeof indefinido);
+
+}
 }</code></pre>
 
         <!-- 3) La tabla «Espero / Sale», rellenada a mano.
@@ -78,13 +95,17 @@
             </thead>
             <tbody>
               <tr><th scope="row">edad</th><td><code>20</code></td><td><code>number</code></td><td><code>number</code></td></tr>
-              <tr><th scope="row">[variable]</th><td><code>[valor]</code></td><td><code>[lo que esperas]</code></td><td><code>[lo que sale]</code></td></tr>
+              <tr><th scope="row">Letras</th><td><code>"Esta variable es un string"</code></td><td><code>String</code></td><td><code>String</code></td></tr>
+              <tr><th scope="row">nulo</th><td><code>null</code></td><td><code>null</code></td><td><code>null</code></td></tr>
+              <tr><th scope="row">verdad</th><td><code>true</code></td><td><code>Boolean</code></td><td><code>Boolean</code></td></tr>
+              <tr><th scope="row">indefinido</th><td><code></code></td><td><code>undefined</code></td><td><code>Number</code></td></tr>
+              <tr><th scope="row">numero_grande</th><td><code>10000000000</code></td><td><code>Bigint</code></td><td><code>Number</code></td></tr>
             </tbody>
           </table>
         </div>
 
         <!-- 4) Tu explicación -->
-        <p class="small mb-0"><strong>El caso de null:</strong> [explica en una línea qué pasa con typeof null]</p>
+        <p class="small mb-0"><strong>El caso de null:</strong> Typeofnull devuelve :object. Esto es un error ya que realmente es un valor primitivo</p>
       </div>
 
       <!-- 5) El botón. onclick="ejercicio1()" hace que, al pulsarlo, se ejecute la función ejercicio1() de js/app.js.
