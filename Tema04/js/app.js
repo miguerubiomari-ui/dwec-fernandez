@@ -52,15 +52,51 @@ function restar() {
 
 function multiplicar() {
   // TODO: como sumar(), con el operador *
+  const n1 = leerNumero("numero1");
+  const n2 =leerNumero("numero2");
+
+  if ((Number.isNaN(n1) || Number.isNaN(n2)) && (n2 !=0)){
+    mostrar("Escribe los dos números antes de operar.", "danger");
+    console.warn("Multiplicar: falta algún número");
+  }else {
+    const resultado = n1 * n2;
+    mostrar (`${n1} * ${n2} = ${resultado}`);
+    console.warn(`Multiplicar: ${n1} * ${n2} = ${resultado}`)
+  }
 }
 
 function dividir() {
   // TODO: como sumar(), con el operador /
   // TODO: si el número 2 es 0, muestra un error en rojo. Ojo: en JavaScript, 5 / 0 no da error, da Infinity.
+  const n1 = leerNumero("numero1");
+  const n2 =leerNumero("numero2");
+
+  if ((Number.isNaN(n1) || Number.isNaN(n2)) && (n2 !=0)){
+    mostrar("Escribe los dos números antes de operar y no pongas 0 como divisor.", "danger");
+    console.warn("Dividir: falta algún número");
+  }else if (n2 === 0){
+    mostrar("No se puede dividir por cero. Prueba de nuevo.","danger");
+    console.warn("No se puede dividir entre 0");
+  } else {
+    const resultado = n1 / n2;
+    mostrar (`${n1} / ${n2} = ${resultado}`);
+    console.warn(`Dividir: ${n1} / ${n2} = ${resultado}`)
+  }
 }
 
 function potencia() {
   // TODO: como sumar(), con el operador **
+    const n1 = leerNumero("numero1");
+    const n2 = leerNumero("numero2");
+
+    if (Number.isNaN(n1) || Number.isNaN(n2)){
+        mostrar("Escribe los dos número antes de operar.", "danger");
+        console.warn("Potencia: falta algún número");
+    } else{
+        const resultado = n1 ** n2;
+        mostrar(`${n1} ** ${n2} = ${resultado}`);
+        console.warn(`Potencia: ${n1} ** ${n2} = ${resultado}`)
+    }
 }
 
 function modulo() {
