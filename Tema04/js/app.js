@@ -152,6 +152,12 @@ function parOImpar() {
   if (Number.isNaN(n1) || Number.isFinite(n2)){
     mostrar("Escribe solo un número", "danger");
     console.warn("Par o impar: faltan valores");
+  }else if(n1 % 2 === 0){
+    mostrar(`El número: ${n1} es par`);
+    console.log(`${n1} es par`);
+  }else{
+    mostrar(`El número: ${n1} es impar`);
+    console.log(`${n1} es impar`);
   }
 }
 
