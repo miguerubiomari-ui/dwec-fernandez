@@ -61,7 +61,7 @@ function multiplicar() {
   }else {
     const resultado = n1 * n2;
     mostrar (`${n1} * ${n2} = ${resultado}`);
-    console.warn(`Multiplicar: ${n1} * ${n2} = ${resultado}`)
+    console.log(`Multiplicar: ${n1} * ${n2} = ${resultado}`)
   }
 }
 
@@ -80,7 +80,7 @@ function dividir() {
   } else {
     const resultado = n1 / n2;
     mostrar (`${n1} / ${n2} = ${resultado}`);
-    console.warn(`Dividir: ${n1} / ${n2} = ${resultado}`)
+    console.log(`Dividir: ${n1} / ${n2} = ${resultado}`)
   }
 }
 
@@ -95,13 +95,27 @@ function potencia() {
     } else{
         const resultado = n1 ** n2;
         mostrar(`${n1} ** ${n2} = ${resultado}`);
-        console.warn(`Potencia: ${n1} ** ${n2} = ${resultado}`)
+        console.log(`Potencia: ${n1} ** ${n2} = ${resultado}`);
     }
 }
-
+ 
 function modulo() {
   // TODO: el resto de la división, con el operador %
   // TODO: si el número 2 es 0, muestra un error en rojo (5 % 0 da NaN).
+  const n1 = leerNumero("numero1");
+  const n2 = leerNumero("numero2");
+
+  if (Number.isNaN(n1) || Number.isNaN(n2)){
+    mostrar("Escribe los dos números antes de operar.","danger");
+    console.warn("Resto: Falta algún número");
+  }else if (n2 ===0){
+    mostrar("No se puede dividir por cero. Prueva con otro número.", "danger");
+    console.warn("No se puede dividir entre cero");
+  }else{
+    const resultado = n1 % n2;
+        mostrar(`${n1} % ${n2} = ${resultado}`);
+        console.log(`Resto: ${n1} % ${n2} = ${resultado}`);
+  }
 }
 
 
@@ -111,11 +125,34 @@ function modulo() {
 
 function cualEsMayor() {
   // TODO: con if, else if y else, di cuál de los dos números es mayor o si son iguales.
+  const n1 = leerNumero("numero1");
+  const n2 = leerNumero("numero2");
+
+    if (Number.isNaN(n1) || Number.isNaN(n2)){
+    mostrar("Escribe los dos números antes de operar.","danger");
+    console.warn("Resto: Falta algún número");
+  }else if (n1 === n2){
+    mostrar("Los dos números son iguales. Escribe números distintos");
+    console.warn("Los números tienen el mismo valor");
+  }else if (n1 > n2){
+    mostrar(`${n1} es mayor que ${n2}`);
+    console.log(`${n1} > ${n2}`);
+  }else{
+    mostrar(`${n2} es mayor que ${n1}`);
+    console.log(`${n2} > ${n1}`);
+  }
 }
 
 function parOImpar() {
   // TODO: solo con el número 1. Usa el operador % y el ternario ( condición ? "par" : "impar" ).
   // TODO: si el número tiene decimales, avisa de que no es ni par ni impar.
+  const n1 =  leerNumero("numero1");
+  const n2 = leerNumero("numero 2");
+
+  if (Number.isNaN(n1) || Number.isFinite(n2)){
+    mostrar("Escribe solo un número", "danger");
+    console.warn("Par o impar: faltan valores");
+  }
 }
 
 
