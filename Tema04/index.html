@@ -46,10 +46,14 @@
     <section class="card mb-4">
       <div class="card-header">Los números</div>
       <div class="card-body">
-        <label for="numero1" class="form-label">Número 1</label>
-        <input type="number" id="numero1" class="form-control mb-3">
-        <label for="numero2" class="form-label">Número 2</label>
-        <input type="number" id="numero2" class="form-control">
+        <div class="row">
+          <div class="col-12 col-4 col-2">
+              <label for="numero1" class="form-label">Número 1</label>
+              <input type="number" id="numero1" class="form-control mb-3">
+              <label for="numero2" class="form-label">Número 2</label>
+              <input type="number" id="numero2" class="form-control">
+          </div>
+        </div>
       </div>
     </section>
 
@@ -80,11 +84,15 @@
     <!-- TODO EJERCICIO 2 · Comparaciones: una card con los botones
                «¿Cuál es mayor?» → cualEsMayor()     «¿Par o impar?» → parOImpar() -->
     <section class="card mb-4">
-      <div class="card-header">Comparaciones</div>
-      <div class="card-body">
-        <button type="button" class="btn btn-primary" onclick="cualEsMayor()">¿Cuál es mayor?</button>
-        <button type="button" class="btn btn-primary" onclick="parOImpar()">¿Par o impar?</button>
-        <p>¿Par o impar?: solo mira el número 1</p>
+      <div>
+        <div>
+          <div class="card-header">Comparaciones</div>
+            <div class="card-body">
+              <button type="button" class="btn btn-primary" onclick="cualEsMayor()">¿Cuál es mayor?</button>
+              <button type="button" class="btn btn-primary" onclick="parOImpar()">¿Par o impar?</button>
+             <p>¿Par o impar?: solo mira el número 1</p>
+            </div>
+        </div>
       </div>
     </section>
 
@@ -92,16 +100,20 @@
                Con texto:  for → bucleFor()    while → bucleWhile()    do…while → bucleDoWhile()
                Con badges: for → badgesFor()   while → badgesWhile()   do…while → badgesDoWhile() -->
     <section class="card mb-4">
-      <div class="card-header">Bucles</div>
-      <div class="card-body">
-          <button type="button" class="btn btn-primary" onclick="bucleFor()">For</button>
-          <button type="button" class="btn btn-primary" onclick="bucleWhile()">While</button>
-          <button type="button" class="btn btn-primary" onclick="bucleDoWhile()">Do While</button>
-      </div>
-      <div class="card-body">
-          <button type="button" class="btn btn-success" onclick="badgesFor()">Badge For</button>
-          <button type="button" class="btn btn-success" onclick="badgesWhile()">Badge While</button>
-          <button type="button" class="btn btn-success" onclick="badgesDoWhile()">Badge Do While</button>
+      <div class="row">
+         <div class="col-12 col-4 col-2">
+          <div class="card-header">Bucles</div>
+                <div class="card-body">
+                  <button type="button" class="btn btn-primary" onclick="bucleFor()">For</button>
+                  <button type="button" class="btn btn-primary" onclick="bucleWhile()">While</button>
+                  <button type="button" class="btn btn-primary" onclick="bucleDoWhile()">Do While</button>
+          </div>
+                <div class="card-body">
+                  <button type="button" class="btn btn-success" onclick="badgesFor()">Badge For</button>
+                  <button type="button" class="btn btn-success" onclick="badgesWhile()">Badge While</button>
+                  <button type="button" class="btn btn-success" onclick="badgesDoWhile()">Badge Do While</button>
+          </div>
+        </div>
       </div>
     </section>
 
