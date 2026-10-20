@@ -200,7 +200,23 @@ function bucleFor() {
 function bucleWhile() {
   // TODO: lo mismo que bucleFor(), con un while.
   if(Number.isNaN(veces) || (veces % 1 != 0) || veces > MAXIMO_REPETICIONES){
-    
+    mostrar("Escribe el número, que no tenga decimales o que no supere el número máximo de repeticiones", "danger");
+    console.warn("Error el número no cuenta con lo siguiente: falta de valor, es decimal o supera máximo de repeticiones"); 
+  }else{
+    let i = 1;
+    while (1 <= veces){
+      añadirLinea(`while . repetición ${i} de veces`);
+      contador++;
+      i++;
+    }
+        if (contador === 1){
+          mostrar("Total: 1 repetición");
+        } else if (contador > 1){
+          mostrar("Total: " + `${contador}` + " repeticiones");
+        }else{
+          mostrar("Total: 0 repeticiones");
+        }
+
   }
 }
 
@@ -215,17 +231,20 @@ function bucleDoWhile() {
     console.warn("Error el número no cuenta con lo siguiente: falta de valor, es decimal o supera máximo de repeticiones");
   }else{
     do{
-        anadirLinea(`for · repetición ${i} de ${veces}`);
+        añadirLinea(`do while . repetición ${i} de ${veces}`);
         contador++;
+        i++;
+    }while (1 <= veces);
         if (contador === 1){
           mostrar("Total: 1 repetición");
-        } else{
+        } else if (contador > 1){
           mostrar("Total: " + `${contador}` + " repeticiones");
+        }else{
+          mostrar("Total: 0 repeticiones");
         }
-       }while(contador < veces);
-
-    }
+      }
   }
+
 
 
 
@@ -237,12 +256,63 @@ function badgesFor() {
   // TODO: como bucleFor(), pero cada vuelta añade un badge con el número de la repetición:
   //         anadirBadge(i, "primary");
   // TODO: los pares, de un color y los impares, de otro. Elige el color con el operador ternario.
+  const veces = leerNumero("numero1");
+  let contador = 0;
+  limpiarSalida();
+
+  if(Number.isNaN || veces % 1 !== 0 || veces > MAXIMO_REPETICIONES){
+    mostrar("Escribe el número, que no tenga decimales o que no supere el máximo de repeticiones", "danger");
+    console.warn("Error el número no cuenta con lo siguiente: falta de valor, es decimal o supera máximo de repeticiones");
+  }
+
+  for(let i = 1; i <= veces; i++){
+    const color = 1 % 2 === 0 ? "primary" : "secondary";
+    añadirBadge(i, color);
+    contador++;
+  }
+  mostrar(`Total: ${contador} ${contador === 1 ? "repetición" : "repeticiones"}`)
 }
 
 function badgesWhile() {
-  // TODO: lo mismo que badgesFor(), con un while.
+  const veces = leerNumero("numero1");
+  let contador = 0;
+  limpiarSalida();
+
+  if (Number.isNaN(veces) || veces % 1 !== 0 || veces > MAXIMO_REPETICIONES) {
+    mostrar("Escribe un número sin decimales que no supere el máximo de repeticiones", "danger");
+    console.warn("Error: el número falta, es decimal o supera el máximo de repeticiones");
+    return;
+  }
+
+  let i = 1;
+  while (i <= veces) {
+    const color = i % 2 === 0 ? "primary" : "secondary";
+    anadirBadge(i, color);
+    contador++;
+    i++; // sin esto el bucle sería infinito
+  }
+
+  mostrar(`Total: ${contador} ${contador === 1 ? "repetición" : "repeticiones"}`);
 }
 
 function badgesDoWhile() {
-  // TODO: lo mismo que badgesFor(), con un do…while.
+  const veces = leerNumero("numero1");
+  let contador = 0;
+  limpiarSalida();
+
+  if (Number.isNaN(veces) || veces % 1 !== 0 || veces > MAXIMO_REPETICIONES) {
+    mostrar("Escribe un número sin decimales que no supere el máximo de repeticiones", "danger");
+    console.warn("Error: el número falta, es decimal o supera el máximo de repeticiones");
+    return;
+  }
+
+  let i = 1;
+  do {
+    const color = i % 2 === 0 ? "primary" : "secondary";
+    anadirBadge(i, color);
+    contador++;
+    i++;
+  } while (i <= veces);
+
+  mostrar(`Total: ${contador} ${contador === 1 ? "repetición" : "repeticiones"}`);
 }
