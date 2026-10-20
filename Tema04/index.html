@@ -91,10 +91,17 @@
     <!-- TODO EJERCICIOS 3 Y 4 · Bucles: una card con dos grupos de botones (btn-group)
                Con texto:  for → bucleFor()    while → bucleWhile()    do…while → bucleDoWhile()
                Con badges: for → badgesFor()   while → badgesWhile()   do…while → badgesDoWhile() -->
-    <section>
-      <div class="card-header">Cucles</div>
+    <section class="card mb-4">
+      <div class="card-header">Bucles</div>
       <div class="card-body">
-
+          <button type="button" class="btn btn-primary" onclick="bucleFor()">For</button>
+          <button type="button" class="btn btn-primary" onclick="bucleWhile()">While</button>
+          <button type="button" class="btn btn-primary" onclick="bucleDoWhile()">Do While</button>
+      </div>
+      <div class="card-body">
+          <button type="button" class="btn btn-success" onclick="badgesFor()">Badge For</button>
+          <button type="button" class="btn btn-success" onclick="badgesWhile()">Badge While</button>
+          <button type="button" class="btn btn-success" onclick="badgesDoWhile()">Badge Do While</button>
       </div>
     </section>
 
