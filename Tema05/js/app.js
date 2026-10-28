@@ -51,6 +51,7 @@ function anadirParrafo() {
   // N = párrafos que habrá una vez añadido este (los actuales + 1)
   const numero = contenido.children.length + 1;
   nuevo.textContent = "Párrafo nuevo " + numero;
+  console.log(nuevo.textContent);
 
   // Lo cuelgo al final de #contenido
   contenido.append(nuevo);
@@ -83,16 +84,18 @@ function activarResaltado() {
   const parrafos = document.querySelectorAll("#contenido p");
 
   for (const parrafo of parrafos) {
-    // addEventListener("mouseenter", ...) ejecuta la función cuando el ratón entra en el párrafo.
-    // Los eventos los veremos a fondo en el tema 9: de momento, copia este modelo.
+    // Para poner el cursor gris
     parrafo.addEventListener("mouseenter", function () {
       parrafo.classList.add("bg-body-secondary");
     });
 
-    // TODO: lo mismo con "mouseleave" (cuando el ratón sale) para quitar la clase.
+    // Para desactivar el gris del ratón para cunado se quite de la zona
+    parrafo.addEventListener("mouseleave", function () {
+      parrafo.classList.remove("bg-body-secondary");
+    });
   }
 
-  // TODO: un console.log() que diga en cuántos párrafos se ha activado (parrafos.length).
+  console.log("Resaltado activado en " + parrafos.length + " párrafos");
 }
 
 
@@ -101,14 +104,35 @@ function activarResaltado() {
 // ============================================================
 
 function cambiarTexto() {
-  // TODO: lee lo escrito en #nuevoTexto con value y quítale los espacios de los extremos con trim().
-  // TODO: si está vacío, muestra el error #error4 (quítale "d-none") y no cambies nada.
-  // TODO: si no, pon ese texto en el primer párrafo de #contenido con textContent y oculta el error.
+  // Leo lo escrito y le quito los espacios de los extremos
+  const texto = document.querySelector("#nuevoTexto").value.trim();
+  const error = document.querySelector("#error4");
+
+  if (texto === "") {
+    // Casilla vacía, muestro el error 
+    error.classList.remove("d-none");
+    console.log("cambiarTexto: la casilla está vacía");
+  } else {
+    // Hay texto: lo pongo en el primer párrafo como texto plano y oculto el error
+    document.querySelector("#contenido p").textContent = texto;
+    error.classList.add("d-none");
+    console.log("cambiarTexto: primer párrafo cambiado a «" + texto + "»");
+  }
 }
 
 function cambiarConHtml() {
-  // TODO: lo mismo que cambiarTexto(), pero con innerHTML.
-  //       Prueba las dos con <b>hola</b> y explica en el README qué diferencia ves y por qué es peligroso.
+  // Lo mismo que cambiarTexto(), pero interpretando el texto como HTML
+  const texto = document.querySelector("#nuevoTexto").value.trim();
+  const error = document.querySelector("#error4");
+
+  if (texto === "") {
+    error.classList.remove("d-none");
+    console.log("cambiarConHtml: la casilla está vacía");
+  } else {
+    document.querySelector("#contenido p").innerHTML = texto;
+    error.classList.add("d-none");
+    console.log("cambiarConHtml: primer párrafo cambiado con innerHTML");
+  }
 }
 
 
@@ -117,19 +141,72 @@ function cambiarConHtml() {
 // ============================================================
 
 function anadirTarea() {
-  // TODO: lee el texto de #tareaInput (value + trim). Si está vacío, muestra un mensaje en #error5.
-  // TODO: si no, crea un <li class="list-group-item"> con dos elementos dentro:
-  //         · un <input> de tipo "checkbox" con la clase "form-check-input",
-  //         · un <span> con el texto de la tarea (textContent).
-  //       Cuelga el <li> de #listaTareas y vacía la casilla (value = "").
-  // TODO: actualiza #totalTareas con el número de <li> que hay en la lista.
+  const entrada = document.querySelector("#tareaInput");
+  const error = document.querySelector("#error5");
+  const lista = document.querySelector("#listaTareas");
+
+  // Leo el texto y le quito los espacios de los extremos
+  const texto = entrada.value.trim();
+
+  if (texto === "") {
+    // Casilla vacía: aviso y no añado nada
+    error.textContent = "Escribe una tarea antes de añadir.";
+    error.classList.remove("d-none");
+    console.log("anadirTarea: la casilla está vacía");
+  } else {
+    // Creo el <li> con su clase de Bootstrap
+    const li = document.createElement("li");
+    li.classList.add("list-group-item");
+
+    // Creo la casilla de verificación
+    const casilla = document.createElement("input");
+    casilla.type = "checkbox";
+    casilla.classList.add("form-check-input", "me-2");
+
+    // Creo el <span> con el texto (textContent, nunca innerHTML)
+    const span = document.createElement("span");
+    span.textContent = texto;
+
+    // Meto casilla y span dentro del <li>, y el <li> en la lista
+    li.append(casilla, span);
+    lista.append(li);
+
+    // Vacío la casilla de texto y oculto el error
+    entrada.value = "";
+    error.classList.add("d-none");
+
+    // Actualizo el contador
+    document.querySelector("#totalTareas").textContent =
+      document.querySelectorAll("#listaTareas li").length;
+
+    console.log("anadirTarea: tarea añadida «" + texto + "»");
+  }
 }
 
 function borrarCompletadas() {
-  // TODO: selecciona las casillas marcadas: document.querySelectorAll("#listaTareas input:checked").
-  // TODO: si no hay ninguna, avisa en #error5. Si hay, recórrelas con for…of y borra el <li> de cada una
-  //       (el <li> es el padre de la casilla: parentElement).
-  // TODO: actualiza #totalTareas.
+  const error = document.querySelector("#error5");
+
+  // Casillas marcadas dentro de la lista
+  const marcadas = document.querySelectorAll("#listaTareas input:checked");
+
+  if (marcadas.length === 0) {
+    // No hay ninguna marcada, avisa
+    error.textContent = "No hay ninguna tarea marcada para borrar.";
+    error.classList.remove("d-none");
+    console.log("borrarCompletadas: no hay tareas marcadas");
+  } else {
+    // Borro el <li> (padre) de cada casilla marcada
+    for (const casilla of marcadas) {
+      casilla.parentElement.remove();
+    }
+    error.classList.add("d-none");
+
+    // Actualizo el contador
+    document.querySelector("#totalTareas").textContent =
+      document.querySelectorAll("#listaTareas li").length;
+
+    console.log("borrarCompletadas: borradas " + marcadas.length + " tareas");
+  }
 }
 
 
