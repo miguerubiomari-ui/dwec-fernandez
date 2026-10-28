@@ -220,8 +220,29 @@ function verDatosVentana() {
   const alto = window.innerHeight;
   document.querySelector("#datoVentana").textContent = `${ancho} × ${alto} px`;
 
-  // TODO: con if / else if, el punto de corte de Bootstrap según el ancho: xs (< 576), sm (≥ 576), md (≥ 768),
-  //       lg (≥ 992), xl (≥ 1200) y xxl (≥ 1400). Escríbelo en #datoPunto.
-  // TODO: el tamaño de la pantalla (screen.width y screen.height) en #datoPantalla.
-  // TODO: la URL (location.href) en #datoUrl y el idioma del navegador (navigator.language) en #datoIdioma.
+  // Punto de corte de Bootstrap según el ancho (de mayor a menor)
+  let punto;
+  if (ancho >= 1400) {
+    punto = "xxl (desde 1400 px)";
+  } else if (ancho >= 1200) {
+    punto = "xl (de 1200 a 1399 px)";
+  } else if (ancho >= 992) {
+    punto = "lg (de 992 a 1199 px)";
+  } else if (ancho >= 768) {
+    punto = "md (de 768 a 991 px)";
+  } else if (ancho >= 576) {
+    punto = "sm (de 576 a 767 px)";
+  } else {
+    punto = "xs (menos de 576 px)";
+  }
+  document.querySelector("#datoPunto").textContent = punto;
+
+  // Tamaño de la pantalla
+  document.querySelector("#datoPantalla").textContent = `${screen.width} × ${screen.height} px`;
+
+  // URL e idioma del navegador
+  document.querySelector("#datoUrl").textContent = location.href;
+  document.querySelector("#datoIdioma").textContent = navigator.language;
+
+  console.log("verDatosVentana: ancho " + ancho + " px, punto de corte " + punto);
 }
