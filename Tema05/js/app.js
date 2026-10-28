@@ -1,5 +1,5 @@
 /*
-  Tarea 5 · DWEC · [Tu nombre y apellidos]
+  Tarea 5 · DWEC · Miguel Ángel Fernández Vega
   Manipular el DOM.
 
   Cómo usar esta plantilla:
