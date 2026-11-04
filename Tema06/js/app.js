@@ -23,6 +23,8 @@ console.log("app.js cargado");
 // ============================================================
 
 function comoTexto(lista) {
+ // const estudiante = [Nombre, Apellidos, Curso, Edad];
+
   return "[" + lista.join(", ") + "]";
 }
 
@@ -35,7 +37,15 @@ function comoTexto(lista) {
 // TODO: añádele el método presentarse(), que devuelve una frase con this.nombre, this.apellidos, this.edad y this.curso.
 //       Por ejemplo: «Soy [nombre] [apellidos], tengo [edad] años y estudio [curso].»
 const estudiante = {
+  nombre: "Miguel Ángel",
+  apellidos: "Fernández Vega",
+  edad: 21,
+  curso: "2º DAW",
 
+  presentarse: function () {
+    console.log("presentarse() ejecutado");
+    return "Soy " + this.nombre + " " + this.apellidos + ", tengo " + this.edad + " años y estudio " + this.curso + ".";
+}
 };
 
 function verFicha() {
@@ -45,15 +55,51 @@ function verFicha() {
   //       y lee cada valor con corchetes: estudiante[clave].
   // TODO: debajo, un <p> con la frase de estudiante.presentarse().
   // TODO: console.log() del objeto entero.
+
+  //Vacio salida1
+  const salida = document.getElementById("salida1");
+  salida.textContent = ""; 
+
+  //Creo la lista con la clase de bootrap
+  const lista = document.createElement("ul");
+  lista.classList.add("list-group");
+  
+  //Array con las claves
+  const claves = ["nombre", "apellidos", "edad", "curso"];
+
+  
+  claves.forEach(function(clave){
+    const li = document.createElement("li");
+    li.classList.add("list-group-item");
+    li.textContent = clave + ": " + estudiante[clave];
+    lista.append(li);
+  });
+
+  //Meto la lista en la página
+  salida.append(lista);
+  console.log(estudiante);
+
+  // P con la frase
+  const frase = document.createElement("p");
+  frase.textContent = estudiante.presentarse();
+  frase.classList.add("mt-3");
 }
 
+//Para sumar la edad
 function cumplirAnios() {
   // TODO: suma 1 a la edad del estudiante y vuelve a pintar la ficha (llama a verFicha()).
+  estudiante.edad = estudiante.edad +1;
+
+  verFicha();
 }
 
+//Para borrar curso usando delete
 function quitarCurso() {
-  // TODO: borra la propiedad curso con delete y vuelve a pintar la ficha.
-  //       Fíjate en lo que sale ahora en el curso y explícalo en el README.
+
+  delete estudiante.curso;
+  console.log("Se ha borrado curso", estudiante);
+
+  verFicha();
 }
 
 
