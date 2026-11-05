@@ -381,22 +381,83 @@ mostrarNotas();
 
 const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+// Escribe en #salida5 una línea (<p>) por cada texto de la lista que le paso
+function escribir5(lineas) {
+  const salida = document.querySelector("#salida5");
+  salida.textContent = "";
+
+  lineas.forEach(function (texto) {
+    const p = document.createElement("p");
+    p.classList.add("mb-1");
+    p.textContent = texto;
+    salida.append(p);
+  });
+}
+
 function verDobles() {
-  // TODO: con map(), un array nuevo con el doble de cada número.
-  // TODO: escribe en #salida5 el resultado y, debajo, numeros (para que se vea que no ha cambiado).
+  // map() crea un array nuevo con el doble de cada número
+  const dobles = numeros.map(function (n) {
+    return n * 2;
+  });
+
+  // Muestro el resultado y, debajo, numeros para comprobar que no ha cambiado
+  escribir5([
+    "map → " + comoTexto(dobles),
+    "numeros → " + comoTexto(numeros)
+  ]);
+  console.log("verDobles:", dobles, "original:", numeros);
 }
 
 function verPares() {
-  // TODO: con filter(), los números pares (n % 2 === 0). Escríbelos en #salida5 como en verDobles().
+  // filter() se queda solo con los números cuyo resto al dividir entre 2 es 0
+  const pares = numeros.filter(function (n) {
+    return n % 2 === 0;
+  });
+
+  escribir5([
+    "filter → " + comoTexto(pares),
+    "numeros → " + comoTexto(numeros)
+  ]);
+  console.log("verPares:", pares, "original:", numeros);
 }
 
 function verSuma() {
-  // TODO: con reduce(), la suma de todos los números (empieza en 0). Escríbela en #salida5.
+  // reduce() va acumulando la suma, empezando en 0
+  const suma = numeros.reduce(function (acumulado, n) {
+    return acumulado + n;
+  }, 0);
+
+  escribir5([
+    "reduce → " + suma,
+    "numeros → " + comoTexto(numeros)
+  ]);
+  console.log("verSuma:", suma, "original:", numeros);
 }
 
 function verCadena() {
-  // TODO: los tres seguidos: los pares, después sus dobles y al final la suma de esos dobles.
-  //       Escribe en #salida5 una línea por paso.
+  // Paso 1: los pares
+  const pares = numeros.filter(function (n) {
+    return n % 2 === 0;
+  });
+
+  // Paso 2: el doble de cada par
+  const dobles = pares.map(function (n) {
+    return n * 2;
+  });
+
+  // Paso 3: la suma de esos dobles
+  const suma = dobles.reduce(function (acumulado, n) {
+    return acumulado + n;
+  }, 0);
+
+  // Una línea por paso, y numeros debajo
+  escribir5([
+    "1. filter → " + comoTexto(pares),
+    "2. map → " + comoTexto(dobles),
+    "3. reduce → " + suma,
+    "numeros → " + comoTexto(numeros)
+  ]);
+  console.log("verCadena:", pares, dobles, suma);
 }
 
 
@@ -407,27 +468,91 @@ function verCadena() {
 const ciudadesOriginal = ["Granada", "Sevilla", "Málaga", "Córdoba", "Jaén", "Almería", "Cádiz", "Huelva"];
 let ciudades = [...ciudadesOriginal];   // una copia: splice cambia ciudades y así podemos restaurarla
 
+// Escribe en #salida6 una línea (<p>) por cada texto de la lista que le paso
+function escribir6(lineas) {
+  const salida = document.querySelector("#salida6");
+  salida.textContent = "";
+
+  lineas.forEach(function (texto) {
+    const p = document.createElement("p");
+    p.classList.add("mb-1");
+    p.textContent = texto;
+    salida.append(p);
+  });
+}
+
 function mostrarCiudades() {
-  // TODO: vacía #ciudades y pon un badge por ciudad con su posición: «0 · Granada», «1 · Sevilla»...
-  //       Pista: forEach le pasa a tu función dos datos: function (ciudad, posicion) { ... }.
+  // Vacío el contenedor antes de volver a pintar
+  const contenedor = document.querySelector("#ciudades");
+  contenedor.textContent = "";
+
+  // forEach pasa el elemento y su posición: un badge «posición · ciudad» por ciudad
+  ciudades.forEach(function (ciudad, posicion) {
+    const badge = document.createElement("span");
+    badge.classList.add("badge", "text-bg-light", "border", "me-1", "mb-1");
+    badge.textContent = posicion + " · " + ciudad;
+    contenedor.append(badge);
+  });
+
+  console.log("mostrarCiudades:", ciudades);
 }
 
 function verSlice() {
-  // TODO: guarda ciudades.slice(2, 5) y escribe en #salida6 qué devuelve y cuántas ciudades siguen en el array.
+  // slice(2, 5) devuelve una copia de las posiciones 2, 3 y 4 sin tocar ciudades
+  const trozo = ciudades.slice(2, 5);
+
+  escribir6([
+    "slice(2, 5) devuelve " + comoTexto(trozo),
+    "ciudades ahora tiene " + ciudades.length + " elementos: " + (ciudades.length === ciudadesOriginal.length ? "no ha cambiado" : "ha cambiado")
+  ]);
+  console.log("verSlice:", trozo, "ciudades:", ciudades);
 }
 
 function hacerSplice() {
-  // TODO: si quedan menos de 3 ciudades, avisa en #salida6 de que hay que restaurar y no hagas nada más.
-  // TODO: si no, ciudades.splice(2, 2): escribe en #salida6 qué devuelve y cuántas quedan, y vuelve a pintar.
+  // Si quedan menos de 3 ciudades aviso y no hago nada más
+  if (ciudades.length < 3) {
+    escribir6(["Quedan menos de 3 ciudades: pulsa «Restaurar» para recuperarlas."]);
+    console.log("hacerSplice: quedan menos de 3 ciudades");
+  } else {
+    // splice(2, 2) QUITA dos ciudades desde la posición 2 y las devuelve
+    const quitadas = ciudades.splice(2, 2);
+
+    escribir6([
+      "splice(2, 2) devuelve " + comoTexto(quitadas),
+      "ciudades ahora tiene " + ciudades.length + " elementos: " + (ciudades.length === ciudadesOriginal.length ? "no ha cambiado" : "sí ha cambiado")
+    ]);
+    mostrarCiudades();
+    console.log("hacerSplice:", quitadas, "ciudades:", ciudades);
+  }
 }
 
 function restaurarCiudades() {
-  // TODO: vuelve a copiar ciudadesOriginal en ciudades y pinta.
+  // Vuelvo a copiar el original en ciudades (copia nueva, no la misma referencia)
+  ciudades = [...ciudadesOriginal];
+  escribir6(["Ciudades restauradas: " + ciudades.length + " elementos."]);
+  mostrarCiudades();
+  console.log("restaurarCiudades:", ciudades);
 }
 
 function buscarCiudad() {
-  // TODO: lee #buscarCiudad (value y trim). Si está vacío, avisa.
-  // TODO: escribe en #salida6 lo que dan includes() e indexOf() con ese nombre. Si no está, indexOf da -1.
+  const texto = document.querySelector("#buscarCiudad").value.trim();
+
+  // Si la casilla está vacía aviso y salgo
+  if (texto === "") {
+    escribir6(["Escribe el nombre de una ciudad antes de pulsar «Buscar»."]);
+    console.log("buscarCiudad: casilla vacía");
+    return;
+  }
+
+  // includes da true/false; indexOf da la posición o -1 si no está
+  const esta = ciudades.includes(texto);
+  const posicion = ciudades.indexOf(texto);
+
+  escribir6([
+    "includes(\"" + texto + "\") → " + esta,
+    "indexOf(\"" + texto + "\") → " + posicion
+  ]);
+  console.log("buscarCiudad:", texto, esta, posicion);
 }
 
-mostrarCiudades(); 
+mostrarCiudades();   // pinta las ocho ciudades nada más cargar
